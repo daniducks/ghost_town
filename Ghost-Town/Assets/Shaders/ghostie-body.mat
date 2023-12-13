@@ -41,11 +41,24 @@ Material:
     - _BUILTIN_QueueOffset: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _fresnelIntensity: 2.24
+    - _fresnelIntensity: 0.68
     m_Colors:
     - _fresnelClr: {r: 4.4348087, g: 0, b: 0, a: 0}
-    - _outlineCLr: {r: 0.33018863, g: 0.05376398, b: 0, a: 0}
+    - _outlineCLr: {r: 0.5188679, g: 0.026922394, b: 0.08437193, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &1740205679433800933
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639247ca83abc874e893eb93af2b5e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 0
 --- !u!114 &6130720327304218485
 MonoBehaviour:
   m_ObjectHideFlags: 11
