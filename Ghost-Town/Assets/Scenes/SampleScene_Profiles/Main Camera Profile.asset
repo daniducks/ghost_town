@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 92.39
+    value: 119.58
   threshold:
     overrideState: 1
     value: 1
@@ -45,8 +45,8 @@ MonoBehaviour:
     value: {fileID: 0}
     defaultState: 1
   dirtIntensity:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 55.9
 --- !u!114 &-6336596142235887470
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -97,7 +97,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.173
+    value: 0.85
   fastMode:
     overrideState: 0
     value: 0
