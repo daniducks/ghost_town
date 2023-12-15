@@ -14,8 +14,10 @@ public class StartScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(SceneManager.GetSceneByName("SampleScene").isLoaded)
+            SceneManager.LoadScene("StartScene");
         startBtn.GetComponent<Button>().onClick.AddListener(startGame);
+
     }
 
     // Update is called once per frame
