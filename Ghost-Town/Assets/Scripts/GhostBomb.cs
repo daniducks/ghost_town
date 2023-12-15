@@ -13,6 +13,7 @@ public class GhostBomb : MonoBehaviour
     public GameObject bomb; 
     public GameObject timerText;
     public static float timer;
+    public static int highScoreValue;
     public Vector3 DownPos = new Vector3(0.29031f, 0.28f, -1.3362f);
     public Vector3 UpPos = new Vector3(0.29031f, 3.38f, -1.3362f);
     private int decider = 1;
@@ -30,7 +31,7 @@ public class GhostBomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
- 
+        
     }
 
     void spawnGhost()
