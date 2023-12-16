@@ -8,22 +8,24 @@ using TMPro;
 
 public class GhostBomb : MonoBehaviour
 {
-    public GameObject scoreText;
-    public GameObject ghost;
-    public GameObject bomb; 
-    public GameObject timerText;
+    [SerializeField] private GameObject scoreText;
+    [SerializeField] private GameObject ghost;
+    [SerializeField] private GameObject bomb; 
+    [SerializeField] private GameObject timerText;
     public static float timer;
     public static int highScoreValue;
-    public Vector3 DownPos = new Vector3(0.29031f, 0.28f, -1.3362f);
-    public Vector3 UpPos = new Vector3(0.29031f, 3.38f, -1.3362f);
+    [SerializeField] private Vector3 DownPos = new Vector3(0.29031f, 0.45f, -1.3362f);
+    [SerializeField] private Vector3 UpPos = new Vector3(0.29031f, 3.38f, -1.3362f);
     private int decider = 1;
     private float curr;
-    public float speed = 1.0f;
+    [SerializeField] private float speed = 70f;
+
+       private bool timerReached = false;
+       private float ghostTimer = 0;
 
     // Start is called before the first frame update
     void Start()
     {   
-
         ghost.transform.position = DownPos;
         bomb.transform.position = DownPos;
     }
@@ -31,18 +33,31 @@ public class GhostBomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(decider == 1)
+        {
+            if (!timerReached)
+                ghostTimer += Time.deltaTime;
+            if (!timerReached && ghostTimer > 5)
+            {
+                print("Ghost");
+                timerReached = true;
+            }
+
+        }
     }
 
     void spawnGhost()
     {
-        //yield return new WaitForSeconds(Random.Range(0.3f,3));
-        // #curr = Mathf.MoveTowards(curr, UpPos, speed* Time.deltaTime);
-        // #ghostTrans.localPosition = Vector3.lerp(DownPos, UpPos, curr);
+
     }
 
     void spawnBomb()
     {
 
+    }
+
+    IEnumerator waiter()
+    {
+        yield return new WaitForSeconds(3);
     }
 }
