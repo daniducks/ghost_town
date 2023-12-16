@@ -10,14 +10,15 @@ public class GameLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeRemaining = 5;
+        timeRemaining = 60;
     }
 
     // Update is called once per frame
     void Update()
     {
         if (timeRemaining > 0){
-            Timer.text = timeRemaining.ToString();
+            float timeToDisplay = Mathf.FloorToInt(timeRemaining % 60);
+            Timer.text = timeToDisplay.ToString();
             timeRemaining -= Time.deltaTime;
         }
     }
