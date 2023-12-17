@@ -22,6 +22,7 @@ public class GhostBomb : MonoBehaviour
 
        private bool timerReached = false;
        private float ghostTimer = 0;
+       private float elapsedTime;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +42,14 @@ public class GhostBomb : MonoBehaviour
             {
                 print("Ghost");
                 timerReached = true;
+            }
+            if (timerReached)
+            {
+                //makes the ghost move up :D
+                elapsedTime += Time.deltaTime;
+                float percentComplete = elapsedTime / speed;
+
+                ghost.transform.position = Vector3.Lerp(DownPos, UpPos, percentComplete);
             }
 
         }
