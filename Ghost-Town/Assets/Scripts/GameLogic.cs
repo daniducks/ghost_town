@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class GameLogic : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI Timer;
@@ -21,6 +22,11 @@ public class GameLogic : MonoBehaviour
             float timeToDisplay = Mathf.FloorToInt(timeRemaining % 60);
             Timer.text = timeToDisplay.ToString();
             timeRemaining -= Time.deltaTime;
+        }
+
+        if (timeRemaining < 0)
+        {
+            SceneManager.LoadScene("EndScene");
         }
     }
 }
