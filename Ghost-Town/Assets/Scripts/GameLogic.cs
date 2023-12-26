@@ -8,24 +8,55 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private TextMeshProUGUI Timer;
     [SerializeField] private TextMeshProUGUI Score;
     [SerializeField] private float timeRemaining;
+    [SerializeField] private float readyTimeRemaining;
+
+    private bool isPlaying;
     // Start is called before the first frame update
     void Start()
     {
+        isPlaying = false;
         timeRemaining = 60;
+        readyTimeRemaining = 6;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timeRemaining > 0)
+
+        if (!isPlaying)
+        {
+            if (readyTimeRemaining >= 4)
+            {
+                Timer.text = "READY";
+                readyTimeRemaining -= Time.deltaTime;
+            }
+
+            else if (readyTimeRemaining >= 3)
+            {
+                Timer.text = "SET";
+                readyTimeRemaining -= Time.deltaTime;
+            }
+
+            else if (readyTimeRemaining >= 2) 
+            {
+                Timer.text = "GO";
+                readyTimeRemaining -= Time.deltaTime;
+            }
+            else {isPlaying = true;}
+
+        }
+   
+
+        if (isPlaying && timeRemaining > 0)
         {
             float timeToDisplay = Mathf.FloorToInt(timeRemaining % 60);
             Timer.text = timeToDisplay.ToString();
             timeRemaining -= Time.deltaTime;
         }
 
-        if (timeRemaining < 0)
+        else if (isPlaying && timeRemaining < 0)
         {
+            isPlaying = false;
             SceneManager.LoadScene("EndScene");
         }
     }
