@@ -10,7 +10,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private float timeRemaining;
     [SerializeField] private float readyTimeRemaining;
 
-    private bool isPlaying;
+    public static bool isPlaying;
     // Start is called before the first frame update
     void Start()
     {
