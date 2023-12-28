@@ -11,6 +11,7 @@ public class GhostBomb : MonoBehaviour
     [SerializeField] private GameObject bomb; 
     [SerializeField] private GameObject timerText;
     [SerializeField] private Animator ghostAnim;
+    [SerializeField] private Animator bombAnim;
     public static float timer;
     public static int highScoreValue;
     [SerializeField] private Vector3 DownPos = new Vector3(0.29031f, 0.45f, -1.3362f);
@@ -18,6 +19,7 @@ public class GhostBomb : MonoBehaviour
     private int decider;
     [SerializeField] private float speed = 70f;
     [SerializeField] private float hittableTime = 3f;
+    [SerializeField] private float defaultUpTime = 1.5f;
 
     private bool timerReached = false;
     private float ghostTimer = 0;
@@ -27,6 +29,7 @@ public class GhostBomb : MonoBehaviour
     private bool ghostCanMove;
     private float gapTime;
     private float upTimer;
+ 
     private float percentageComplete;
 
     // Start is called before the first frame update
@@ -36,7 +39,7 @@ public class GhostBomb : MonoBehaviour
         bomb.transform.position = DownPos;
         decider = 1;
         timerReached = false;
-        upTimer = 3;
+        upTimer = defaultUpTime;
     }
 
     // Update is called once per frame
@@ -58,9 +61,7 @@ public class GhostBomb : MonoBehaviour
             {
                 if (decider == 1 && ghostCanMove) // if the decider chooses ghost (1 = ghost, 2 = bomb)
                 {
-                    //elapsedTime2 = 0;
                     bombCanMove = false;
-
                     ghostAnim.Play("ghostUp");
                     print("its da ghost not going up...");
                     if (ghost.transform.position == UpPos) 
@@ -77,6 +78,7 @@ public class GhostBomb : MonoBehaviour
                             gapTime = Random.Range(2,5);
                             Debug.Log(gapTime);
                             bombCanMove = true;
+                            upTimer = defaultUpTime;
                         }
 
                     }
@@ -84,28 +86,25 @@ public class GhostBomb : MonoBehaviour
                 }
                 else if (decider == 2 && bombCanMove)
                 {
-                    elapsedTime2 = 0;
+
                     ghostCanMove = false;
-                    //makes the ghost move up :D
-                    elapsedTime += Time.deltaTime;
-                    float percentComplete = elapsedTime / speed;
-                    bomb.transform.position = Vector3.Lerp(DownPos, UpPos, percentComplete);
-                    
+                    bombAnim.Play("bombUp");
                     if (bomb.transform.position == UpPos) 
                     {
-                        elapsedTime = 0;
-                        print("bomb up"); 
-
-                        elapsedTime2 += Time.deltaTime;
-                        float percentageComplete = elapsedTime2 / speed;
-                        bomb.transform.position = Vector3.Lerp(UpPos, DownPos, percentageComplete);
-                        
-                        timerReached = false;
-                        ghostTimer = 0;
-                        gapTime = Random.Range(3,7);
-                        decider = Random.Range(1,3);
-                        ghostCanMove = true;
-                        Debug.Log(decider + " chosen by bomb");
+                        upTimer -= Time.deltaTime;
+                        if (upTimer <= 0)
+                        {                     
+                            print("whatup");
+                            bombAnim.Play("bombDown");
+                                
+                            timerReached = false;
+                            ghostTimer = 0;
+                            decider = Random.Range(1,3);
+                            gapTime = Random.Range(2,5);
+                            Debug.Log(gapTime);
+                            ghostCanMove = true;
+                            upTimer = defaultUpTime;
+                        }
 
                     }
                 }
