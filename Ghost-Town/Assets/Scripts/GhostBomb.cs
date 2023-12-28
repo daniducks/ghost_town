@@ -19,14 +19,14 @@ public class GhostBomb : MonoBehaviour
     [SerializeField] private float defaultUpTime = 1.5f;
 
     private bool timerReached = false;
-    private float ghostTimer = 0;
+    public static float ghostTimer = 0;
     //private bool isHit = GhostClickedDetector.isHit;
     private bool bombCanMove;
     private bool ghostCanMove;
     private float gapTime;
     public static float upTimer;
-    
- 
+
+    public static int OGScore;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +35,7 @@ public class GhostBomb : MonoBehaviour
         decider = 1;
         timerReached = false;
         upTimer = defaultUpTime;
+        OGScore = 0;
     }
 
     // Update is called once per frame
@@ -54,15 +55,20 @@ public class GhostBomb : MonoBehaviour
 
             if (timerReached)
             {
+                
                 if (decider == 1 && ghostCanMove) // if the decider chooses ghost (1 = ghost, 2 = bomb)
                 {
+                    
+                    OGScore = GameLogic.score;
                     bombCanMove = false;
                     ghostAnim.Play("ghostUp"); //ghost goes up
+                    ghost.GetComponent<BoxCollider>().enabled = true;
                     upTimer -= Time.deltaTime;
                     if (upTimer <= 0 || isHit)
-                    {                     
+                    {                 
+                        ghost.GetComponent<BoxCollider>().enabled = false;    
                         ghostAnim.Play("ghostDown");
-                                
+                        
                         timerReached = false;
                         ghostTimer = 0;
                         decider = Random.Range(1,3);
@@ -75,13 +81,15 @@ public class GhostBomb : MonoBehaviour
                 }
                 else if (decider == 2 && bombCanMove)
                 {
-
+                    
+                    OGScore = GameLogic.score;
                     ghostCanMove = false;
                     bombAnim.Play("bombUp");
-
+                    bomb.GetComponent<BoxCollider>().enabled = true;
                     upTimer -= Time.deltaTime;
                     if (upTimer <= 0 || isHit)
-                    {                     
+                    {            
+                        bomb.GetComponent<BoxCollider>().enabled = false;         
                         bombAnim.Play("bombDown");
                                 
                         timerReached = false;
