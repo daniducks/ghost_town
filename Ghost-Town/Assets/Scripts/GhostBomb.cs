@@ -6,10 +6,9 @@ using TMPro;
 
 public class GhostBomb : MonoBehaviour
 {
-    [SerializeField] private GameObject scoreText;
+    // in the future, make the default up time shorter based on their current score so mb turn into static var
     [SerializeField] private GameObject ghost;
     [SerializeField] private GameObject bomb; 
-    [SerializeField] private GameObject timerText;
     [SerializeField] private Animator ghostAnim;
     [SerializeField] private Animator bombAnim;
     public static float timer;
