@@ -6,7 +6,7 @@ using TMPro;
 
 public class GhostBomb : MonoBehaviour
 {
-    // in the future, make the default up time shorter based on their current score so mb turn into static var and also add a static var fo is hittable 
+    // in the future, make the default up time shorter based on their current score so mb turn into static var and also add a static var fo is hittable :0
     [SerializeField] private GameObject ghost;
     [SerializeField] private GameObject bomb; 
     [SerializeField] private Animator ghostAnim;
@@ -31,8 +31,7 @@ public class GhostBomb : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
-        ghost.transform.position = DownPos;
-        bomb.transform.position = DownPos;
+        // make the ghost and bomb position to somewhere u cant see 
         decider = 1;
         timerReached = false;
         upTimer = defaultUpTime;
@@ -79,7 +78,7 @@ public class GhostBomb : MonoBehaviour
 
                     ghostCanMove = false;
                     bombAnim.Play("bombUp");
-                    print(bomb.transform.position);
+
                     upTimer -= Time.deltaTime;
                     if (upTimer <= 0)
                     {                     
