@@ -299,8 +299,6 @@ MonoBehaviour:
   bomb: {fileID: 830932302}
   ghostAnim: {fileID: 1130631591}
   bombAnim: {fileID: 830932305}
-  DownPos: {x: 0, y: 0.45, z: 0}
-  UpPos: {x: 0, y: 3.38, z: 0}
   defaultUpTime: 3
 --- !u!1 &244061788
 GameObject:
@@ -794,7 +792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Timer: {fileID: 724229971}
-  Score: {fileID: 1420865808}
+  ScoreText: {fileID: 1420865808}
   timeRemaining: 0
   readyTimeRemaining: 0
 --- !u!1 &705507993
@@ -1627,6 +1625,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0bb09e5438cf2e8469da0da82a3fccfc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1130631593}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0bb09e5438cf2e8469da0da82a3fccfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1130631594}
   m_SourcePrefab: {fileID: 100100000, guid: 0bb09e5438cf2e8469da0da82a3fccfc, type: 3}
 --- !u!1 &1130631588 stripped
 GameObject:
@@ -1707,6 +1708,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!114 &1130631594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130631588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4904138635363164eabedbdec0602755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1420865808}
 --- !u!1001 &1264048190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2039,7 +2053,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420865806}
   m_LocalRotation: {x: 0.39392808, y: -0, z: -0, w: 0.91914135}
-  m_LocalPosition: {x: 0, y: 0, z: 2.65}
+  m_LocalPosition: {x: 0, y: 0, z: 2.32}
   m_LocalScale: {x: 1.822, y: 1.822, z: 1.822}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2048,7 +2062,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 46.398, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -521.59, y: -309.72}
+  m_AnchoredPosition: {x: -521.59, y: -310.04}
   m_SizeDelta: {x: 4, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420865808
@@ -2071,9 +2085,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '
-
-    10'
+  m_text: 10
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}

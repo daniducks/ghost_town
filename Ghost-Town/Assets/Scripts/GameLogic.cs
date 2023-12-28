@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class GameLogic : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI Timer;
-    [SerializeField] private TextMeshProUGUI Score;
+    [SerializeField] private TextMeshProUGUI ScoreText;
     [SerializeField] private float timeRemaining;
     [SerializeField] private float readyTimeRemaining;
 
+    public static int score;
     public static bool isPlaying;
     // Start is called before the first frame update
     void Start()
@@ -17,11 +18,13 @@ public class GameLogic : MonoBehaviour
         isPlaying = false;
         timeRemaining = 60;
         readyTimeRemaining = 6;
+        score = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        ScoreText.text = score.ToString();
 
         if (!isPlaying)
         {

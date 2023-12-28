@@ -13,20 +13,20 @@ public class GhostBomb : MonoBehaviour
     [SerializeField] private Animator bombAnim;
     public static float timer;
     public static int highScoreValue;
+    private bool isHit;
     private int decider;
 
     [SerializeField] private float defaultUpTime = 1.5f;
 
     private bool timerReached = false;
     private float ghostTimer = 0;
-    private float elapsedTime;
-    private float elapsedTime2;
+    //private bool isHit = GhostClickedDetector.isHit;
     private bool bombCanMove;
     private bool ghostCanMove;
     private float gapTime;
-    private float upTimer;
+    public static float upTimer;
+    
  
-    private float percentageComplete;
 
     // Start is called before the first frame update
     void Start()
@@ -57,9 +57,9 @@ public class GhostBomb : MonoBehaviour
                 if (decider == 1 && ghostCanMove) // if the decider chooses ghost (1 = ghost, 2 = bomb)
                 {
                     bombCanMove = false;
-                    ghostAnim.Play("ghostUp");
+                    ghostAnim.Play("ghostUp"); //ghost goes up
                     upTimer -= Time.deltaTime;
-                    if (upTimer <= 0)
+                    if (upTimer <= 0 || isHit)
                     {                     
                         print("whatup");
                         ghostAnim.Play("ghostDown");
@@ -71,6 +71,7 @@ public class GhostBomb : MonoBehaviour
                         Debug.Log(gapTime);
                         bombCanMove = true;
                         upTimer = defaultUpTime;
+
                     }
                 }
                 else if (decider == 2 && bombCanMove)
