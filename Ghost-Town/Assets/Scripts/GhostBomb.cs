@@ -6,18 +6,15 @@ using TMPro;
 
 public class GhostBomb : MonoBehaviour
 {
-    // in the future, make the default up time shorter based on their current score so mb turn into static var
+    // in the future, make the default up time shorter based on their current score so mb turn into static var and also add a static var fo is hittable 
     [SerializeField] private GameObject ghost;
     [SerializeField] private GameObject bomb; 
     [SerializeField] private Animator ghostAnim;
     [SerializeField] private Animator bombAnim;
     public static float timer;
     public static int highScoreValue;
-    [SerializeField] private Vector3 DownPos = new Vector3(0.29031f, 0.45f, -1.3362f);
-    [SerializeField] private Vector3 UpPos = new Vector3(0.29031f, 3.38f, -1.3362f);
     private int decider;
-    [SerializeField] private float speed = 70f;
-    [SerializeField] private float hittableTime = 3f;
+
     [SerializeField] private float defaultUpTime = 1.5f;
 
     private bool timerReached = false;
@@ -62,50 +59,43 @@ public class GhostBomb : MonoBehaviour
                 {
                     bombCanMove = false;
                     ghostAnim.Play("ghostUp");
-                    print("its da ghost not going up...");
-                    if (ghost.transform.position == UpPos) 
-                    {
-                        upTimer -= Time.deltaTime;
-                        if (upTimer <= 0)
-                        {                     
-                            print("whatup");
-                            ghostAnim.Play("ghostDown");
+                    upTimer -= Time.deltaTime;
+                    if (upTimer <= 0)
+                    {                     
+                        print("whatup");
+                        ghostAnim.Play("ghostDown");
                                 
-                            timerReached = false;
-                            ghostTimer = 0;
-                            decider = Random.Range(1,3);
-                            gapTime = Random.Range(2,5);
-                            Debug.Log(gapTime);
-                            bombCanMove = true;
-                            upTimer = defaultUpTime;
-                        }
-
+                        timerReached = false;
+                        ghostTimer = 0;
+                        decider = Random.Range(1,3);
+                        gapTime = Random.Range(2,5);
+                        Debug.Log(gapTime);
+                        bombCanMove = true;
+                        upTimer = defaultUpTime;
                     }
-                    
                 }
                 else if (decider == 2 && bombCanMove)
                 {
 
                     ghostCanMove = false;
                     bombAnim.Play("bombUp");
-                    if (bomb.transform.position == UpPos) 
-                    {
-                        upTimer -= Time.deltaTime;
-                        if (upTimer <= 0)
-                        {                     
-                            print("whatup");
-                            bombAnim.Play("bombDown");
+                    print(bomb.transform.position);
+                    upTimer -= Time.deltaTime;
+                    if (upTimer <= 0)
+                    {                     
+                        print("whatup");
+                        bombAnim.Play("bombDown");
                                 
-                            timerReached = false;
-                            ghostTimer = 0;
-                            decider = Random.Range(1,3);
-                            gapTime = Random.Range(2,5);
-                            Debug.Log(gapTime);
-                            ghostCanMove = true;
-                            upTimer = defaultUpTime;
-                        }
-
+                        timerReached = false;
+                        ghostTimer = 0;
+                        decider = Random.Range(1,3);
+                        gapTime = Random.Range(2,5);
+                        Debug.Log(gapTime);
+                        ghostCanMove = true;
+                        upTimer = defaultUpTime;
                     }
+
+                    
                 }
  
 

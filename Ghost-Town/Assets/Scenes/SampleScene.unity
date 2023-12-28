@@ -299,10 +299,8 @@ MonoBehaviour:
   bomb: {fileID: 830932302}
   ghostAnim: {fileID: 1130631591}
   bombAnim: {fileID: 830932305}
-  DownPos: {x: 0.29031, y: 0.45, z: -1.3362}
-  UpPos: {x: 0.29031, y: 3.38, z: -1.3362}
-  speed: 0.4
-  hittableTime: 3
+  DownPos: {x: 0, y: 0.45, z: 0}
+  UpPos: {x: 0, y: 3.38, z: 0}
   defaultUpTime: 3
 --- !u!1 &244061788
 GameObject:
@@ -1058,11 +1056,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0bb09e5438cf2e8469da0da82a3fccfc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0bb09e5438cf2e8469da0da82a3fccfc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.0038000345
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0bb09e5438cf2e8469da0da82a3fccfc, type: 3}
       propertyPath: m_LocalRotation.w
