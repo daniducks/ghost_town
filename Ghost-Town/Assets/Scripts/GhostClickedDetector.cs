@@ -11,14 +11,13 @@ public class GhostClickedDetector : MonoBehaviour
     private bool clickable;
     public static bool isHit;
     private int highScoreValue = GhostBomb.highScoreValue;
-    [SerializeField] private TextMeshProUGUI scoreText;
     void Start()
     {
         isHit = false;
     }
     void Update()
     {
-        if (gameObject.transform.position.y <= 0.6)
+        if (gameObject.transform.position.y <= 0.45 && isHit)
         {
             //Debug.Log("ghost is down");
             isHit = false;
@@ -31,8 +30,9 @@ public class GhostClickedDetector : MonoBehaviour
         
         if (!isHit)
         {
+            if (gameObject.tag == "Ghost") {GameLogic.score += 1;}
+            else {GameLogic.score -= 1;}
             print("point??");
-            GameLogic.score += 1;
             isHit = true;
             print(GameLogic.score);
             GhostBomb.upTimer = 0;

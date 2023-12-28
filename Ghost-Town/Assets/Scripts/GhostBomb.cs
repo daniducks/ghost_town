@@ -61,7 +61,6 @@ public class GhostBomb : MonoBehaviour
                     upTimer -= Time.deltaTime;
                     if (upTimer <= 0 || isHit)
                     {                     
-                        print("whatup");
                         ghostAnim.Play("ghostDown");
                                 
                         timerReached = false;
@@ -81,9 +80,8 @@ public class GhostBomb : MonoBehaviour
                     bombAnim.Play("bombUp");
 
                     upTimer -= Time.deltaTime;
-                    if (upTimer <= 0)
+                    if (upTimer <= 0 || isHit)
                     {                     
-                        print("whatup");
                         bombAnim.Play("bombDown");
                                 
                         timerReached = false;

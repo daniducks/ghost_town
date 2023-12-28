@@ -1104,6 +1104,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0bb09e5438cf2e8469da0da82a3fccfc, type: 3}
+      propertyPath: m_TagString
+      value: Bomb
+      objectReference: {fileID: 0}
     - target: {fileID: 7783538831746117295, guid: 0bb09e5438cf2e8469da0da82a3fccfc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1126,6 +1130,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0bb09e5438cf2e8469da0da82a3fccfc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 830932305}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0bb09e5438cf2e8469da0da82a3fccfc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 830932306}
   m_SourcePrefab: {fileID: 100100000, guid: 0bb09e5438cf2e8469da0da82a3fccfc, type: 3}
 --- !u!1 &830932302 stripped
 GameObject:
@@ -1179,6 +1186,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &830932306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830932302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4904138635363164eabedbdec0602755, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &902029069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1603,6 +1622,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ghostie
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0bb09e5438cf2e8469da0da82a3fccfc, type: 3}
+      propertyPath: m_TagString
+      value: Ghost
+      objectReference: {fileID: 0}
     - target: {fileID: 7783538831746117295, guid: 0bb09e5438cf2e8469da0da82a3fccfc, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1720,7 +1743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4904138635363164eabedbdec0602755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1420865808}
 --- !u!1001 &1264048190
 PrefabInstance:
   m_ObjectHideFlags: 0
