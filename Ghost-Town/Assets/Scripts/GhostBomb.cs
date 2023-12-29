@@ -31,9 +31,11 @@ public class GhostBomb : MonoBehaviour
     void Start()
     {   
         // make the ghost and bomb position to somewhere u cant see 
-        decider = 1;
+        decider = Random.Range(1,3);
         timerReached = false;
         upTimer = defaultUpTime;
+        ghostTimer = 0;
+        gapTime = Random.Range(0.5f, 4f);
     }
 
     // Update is called once per frame
