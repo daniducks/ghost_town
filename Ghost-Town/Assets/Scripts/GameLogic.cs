@@ -20,7 +20,7 @@ public class GameLogic : MonoBehaviour
         timeRemaining = 60;
         readyTimeRemaining = 6;
         score = 0;
-        delay = 2f;
+        delay = 1f;
     }
 
     // Update is called once per frame

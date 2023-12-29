@@ -10,6 +10,7 @@ public class StartScene : MonoBehaviour
 
     public TextMeshProUGUI HighScore;
     public GameObject startBtn;
+    private int highScoreValue = GhostClickedDetector.highScoreValue;
 
     // Start is called before the first frame update
     void Start()
@@ -17,8 +18,8 @@ public class StartScene : MonoBehaviour
         if(SceneManager.GetSceneByName("SampleScene").isLoaded)
             SceneManager.LoadScene("StartScene");
         startBtn.GetComponent<Button>().onClick.AddListener(startGame);
-        GhostBomb.highScoreValue = 0;
-        HighScore.text = GhostBomb.highScoreValue.ToString();
+        HighScore.text = highScoreValue.ToString();
+        
     }
 
     // Update is called once per frame
@@ -30,6 +31,5 @@ public class StartScene : MonoBehaviour
 
     void startGame(){
         SceneManager.LoadScene("SampleScene");
-        print("bro huh");
     }
 }
