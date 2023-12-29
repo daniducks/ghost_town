@@ -18,5 +18,6 @@ public class GameOverScene : MonoBehaviour
     void Update()
     {
         scoreText.text = GameLogic.score.ToString();
+        Debug.Log(GameLogic.score);
     }
 }
