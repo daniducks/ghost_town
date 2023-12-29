@@ -77,7 +77,6 @@ public class GhostBomb : MonoBehaviour
                 }
                 else if (decider == 2 && bombCanMove)
                 {
-
                     ghostCanMove = false;
                     bombAnim.Play("bombUp");
                     bomb.GetComponent<BoxCollider>().enabled = true;
