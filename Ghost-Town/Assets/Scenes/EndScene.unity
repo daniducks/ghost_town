@@ -524,6 +524,7 @@ GameObject:
   - component: {fileID: 520289921}
   - component: {fileID: 520289920}
   - component: {fileID: 520289919}
+  - component: {fileID: 520289922}
   m_Layer: 5
   m_Name: TryAgainBtn
   m_TagString: Untagged
@@ -634,6 +635,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520289917}
   m_CullTransparentMesh: 1
+--- !u!114 &520289922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520289917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81139717d3bcfbb41aacbe817f381f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Btn: {fileID: 520289917}
 --- !u!1 &539753892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,13 +2718,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2efe16d4177fbc4088c5e9aa2c86c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 894811390}
   ghost: {fileID: 1296579896}
   bomb: {fileID: 1440104515}
-  timerText: {fileID: 0}
-  DownPos: {x: 0.29031, y: 0.45, z: -1.3362}
-  UpPos: {x: 0.29031, y: 3.38, z: -1.3362}
-  speed: 0.7
+  ghostAnim: {fileID: 0}
+  bombAnim: {fileID: 0}
+  defaultUpTime: 1.5
+  ghostTimer: 0
+  upTimer: 0
 --- !u!1 &2041060291
 GameObject:
   m_ObjectHideFlags: 0

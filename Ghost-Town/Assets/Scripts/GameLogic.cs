@@ -10,6 +10,7 @@ public class GameLogic : MonoBehaviour
     [SerializeField] private float timeRemaining;
     [SerializeField] private float readyTimeRemaining;
 
+    private float delay;
     public static int score;
     public static bool isPlaying;
     // Start is called before the first frame update
@@ -19,6 +20,7 @@ public class GameLogic : MonoBehaviour
         timeRemaining = 60;
         readyTimeRemaining = 6;
         score = 0;
+        delay = 2f;
     }
 
     // Update is called once per frame
@@ -60,7 +62,12 @@ public class GameLogic : MonoBehaviour
         else if (isPlaying && timeRemaining < 0)
         {
             isPlaying = false;
-            SceneManager.LoadScene("EndScene");
+            delay -= Time.deltaTime;
+            if (delay < 0)
+            {
+                SceneManager.LoadScene("EndScene");                
+            }
+
         }
     }
 }

@@ -26,6 +26,5 @@ public class TitleScreen : MonoBehaviour
     void TooTitleScreen()
     {
         SceneManager.LoadScene("StartScene");
-        print("bro huh");
     }
 }
