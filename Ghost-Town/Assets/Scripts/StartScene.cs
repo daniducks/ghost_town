@@ -18,7 +18,7 @@ public class StartScene : MonoBehaviour
         if(SceneManager.GetSceneByName("SampleScene").isLoaded)
             SceneManager.LoadScene("StartScene");
         startBtn.GetComponent<Button>().onClick.AddListener(startGame);
-        HighScore.text = highScoreValue.ToString();
+        HighScore.text = PlayerPrefs.GetInt("HighScore", 0).ToString();
         
     }
 

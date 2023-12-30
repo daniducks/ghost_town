@@ -54,21 +54,21 @@ public class GhostBomb : MonoBehaviour
             if (timerReached)
             {
                 
-                if (decider == 1 && ghostCanMove) // if the decider chooses ghost (1 = ghost, 2 = bomb)
+                if (decider == 1 || decider == 3 && ghostCanMove) // if the decider chooses ghost (1 = ghost, 2 = bomb)
                 {
 
                     bombCanMove = false;
                     ghostAnim.Play("ghostUp"); //ghost goes up
                     ghost.GetComponent<BoxCollider>().enabled = true;
                     upTimer -= Time.deltaTime;
-                    if (upTimer <= 0 || isHit || ghost.GetComponent<BoxCollider>().enabled == false)
+                    if (upTimer <= 0 || isHit || ghost.GetComponent<BoxCollider>().enabled == false || !GameLogic.isPlaying)
                     {                 
                         ghost.GetComponent<BoxCollider>().enabled = false;    
                         ghostAnim.Play("ghostDown");
                         
                         timerReached = false;
                         ghostTimer = 0;
-                        decider = Random.Range(1,3);
+                        decider = Random.Range(1,4);
                         gapTime = Random.Range(2,5);
                         bombCanMove = true;
                         upTimer = defaultUpTime;
@@ -81,14 +81,14 @@ public class GhostBomb : MonoBehaviour
                     bombAnim.Play("bombUp");
                     bomb.GetComponent<BoxCollider>().enabled = true;
                     upTimer -= Time.deltaTime;
-                    if (upTimer <= 0 || isHit || bomb.GetComponent<BoxCollider>().enabled == false)
+                    if (upTimer <= 0 || isHit || bomb.GetComponent<BoxCollider>().enabled == false || !GameLogic.isPlaying)
                     {            
                         bomb.GetComponent<BoxCollider>().enabled = false;         
                         bombAnim.Play("bombDown");
                                 
                         timerReached = false;
                         ghostTimer = 0;
-                        decider = Random.Range(1,3);
+                        decider = Random.Range(1,4);
                         gapTime = Random.Range(2,5);
                         ghostCanMove = true;
                         upTimer = defaultUpTime;

@@ -26,7 +26,7 @@ public class GhostClickedDetector : MonoBehaviour
             isHit = false;
         }
 
-        if(GameLogic.score > highScoreValue)
+        if(GameLogic.score > PlayerPrefs.GetInt("HighScore", 0))
         {
             highScoreValue = GameLogic.score;
             PlayerPrefs.SetInt("HighScore", highScoreValue);
